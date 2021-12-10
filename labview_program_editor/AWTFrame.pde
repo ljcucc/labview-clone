@@ -1,5 +1,7 @@
 import java.awt.*;
 
+Frame frame;
+
 void initFrame(){
   //System.setProperty("apple.laf.useScreenMenuBar", "true");
   
@@ -15,7 +17,7 @@ void initFrame(){
   //frame.setVisible(true);
   
   // https://www.javatpoint.com/java-awt-menuitem-and-menu
-  Frame frame = (java.awt.Frame) ((processing.awt.PSurfaceAWT.SmoothCanvas)this.getSurface().getNative()).getFrame();
+  frame = (java.awt.Frame) ((processing.awt.PSurfaceAWT.SmoothCanvas)this.getSurface().getNative()).getFrame();
   MenuBar menubar =new MenuBar();  
   Menu file_menu=new Menu("File");  
   MenuItem file_open =new MenuItem("Open file");  
