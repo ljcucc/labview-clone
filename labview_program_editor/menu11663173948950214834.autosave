@@ -1,0 +1,5 @@
+class MenuRect extends Renderable{
+  void render(){
+    mouse
+  }
+}
