@@ -4,7 +4,8 @@ import java.util.*;
 abstract class Renderable{
   int zindex = 0;
   
-  abstract void render(Renderer r);
+  void render(Renderer r){
+  }
   
   boolean mousePressed(){
     return false;
@@ -105,12 +106,14 @@ void keyReleased(){
 }
 
 void mousePressed() {
+  surface.setFrameRate(30.0);
   rects.resorting();
   for(Renderable r: rects)
     if(r.mousePressed()) break;
 }
 
 void mouseReleased() {
+  surface.setFrameRate(10.0);
   for(Renderable r: rects)
     r.mouseReleased();
 }
