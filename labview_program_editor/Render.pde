@@ -21,6 +21,16 @@ abstract class Renderable {
 
 class Renderer {
   int posX = 0, posY = 0;
+  
+  Renderer(int posX, int posY){
+    this.posX = posX;
+    this.posY = posY;
+  }
+  
+  Renderer(){
+    this.posX = 0;
+    this.posY = 0;
+  }
 
   public void draw_rect(int x, int y, int w, int h) {
     rect(x + this.posX, y + this.posY, w, h);
@@ -28,6 +38,14 @@ class Renderer {
 
   public void draw_text(String text, int x, int y) {
     text(text, this.posX + x, this.posY + y);
+  }
+  
+  public int getPosX(int x){
+    return this.posX + x;
+  }
+  
+  public int getPosY(int y){
+    return this.posY + y;
   }
 }
 
@@ -78,6 +96,13 @@ class RenderableContainer extends Renderable {
       r.render(this.renderer);
     }
   }
+  
+  public void render(int x, int y){
+    renderer.posX = x;
+    renderer.posY = y;
+    
+    this.render();
+  }
 
   public boolean mousePressed() {
     this.renderables.resorting();
@@ -97,5 +122,9 @@ class RenderableContainer extends Renderable {
     this.renderables.resorting();
     for (Renderable r : this.renderables)
       r.mouseDragged();
+  }
+  
+  public void add(Renderable r){
+    this.renderables.add(r);
   }
 }
