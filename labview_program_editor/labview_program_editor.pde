@@ -23,7 +23,7 @@ void setup(){
 
 void draw(){
   clear();
-  background(200);
+  background(255);
   
   //rects.sorting();
   //for(Renderable r: rects){
@@ -47,7 +47,7 @@ void keyReleased(){
 }
 
 void mousePressed() {
-  surface.setFrameRate(30.0);
+  //surface.setFrameRate(30.0);
   //rects.resorting();
   //for(Renderable r: rects)
   //  if(r.mousePressed()) break;
@@ -55,7 +55,7 @@ void mousePressed() {
 }
 
 void mouseReleased() {
-  surface.setFrameRate(10.0);
+  //surface.setFrameRate(10.0);
   //for(Renderable r: rects)
   //  r.mouseReleased();
   rootContainer.mouseReleased();
