@@ -16,6 +16,7 @@ class Rect extends Renderable{
     this.posY = y;
   }
 
+  @Override
   void render(Renderer r) {
     fill(255);
     strokeWeight(1);
@@ -74,5 +75,11 @@ class Rect extends Renderable{
   void setZindex(int z){
     this.zindex = z;
     this.label.text = "untitle block "+String.valueOf(zindex);
+  }
+}
+
+class ConnectablePoint extends Renderable{
+  ConnectablePoint(){
+    
   }
 }
