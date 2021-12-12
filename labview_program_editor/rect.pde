@@ -3,6 +3,8 @@ class Rect extends Renderable{
   boolean draggable = false;
 
   Label label = new Label();
+  
+  ConnectableSet connectables = new ConnectableSet(posX, posY);
 
   class Label {
     String text = "untitle block "+String.valueOf(zindex);
@@ -31,6 +33,8 @@ class Rect extends Renderable{
     }
     
     r.draw_rect(pX, pY, this.w, this.h);
+    
+    connectables.render(pX, pY);
 
     if (this.label.display) {
       fill(0);
@@ -78,8 +82,47 @@ class Rect extends Renderable{
   }
 }
 
-class ConnectablePoint extends Renderable{
-  ConnectablePoint(){
+class ConnectableSet extends RenderableContainer{
+  ConnectableSet(int x, int y){
+    super(x, y);
     
+    ConnectablePoint c1 = new ConnectablePoint();
+    ConnectablePoint c2 = new ConnectablePoint(0, 10);
+    ConnectablePoint c3 = new ConnectablePoint(0, 20);
+    ConnectablePoint c4 = new ConnectablePoint(0, 30);
+    this.add(c1);
+    this.add(c2);
+    this.add(c3);
+    this.add(c4);
+  }
+}
+
+class ConnectablePoint extends Renderable{
+  int posX, posY, w, h;
+  ConnectablePoint(){
+    this.posX = 0;
+    this.posY = 0;
+    this.w = 10;
+    this.h = 10;
+  }
+  
+  ConnectablePoint(int x, int y){
+    this.posX = x;
+    this.posY = y;
+    this.w = 10;
+    this.h = 10;
+  }
+  
+  public void render(Renderer r){
+    strokeWeight(1);
+    
+    
+    if(mouseX > r.getPosX(this.posX) && mouseX < r.getPosX(this.posX+ this.w) && mouseY > r.getPosY(this.posY) && mouseY < r.getPosY(this.posY+ this.h)){
+      fill(0);
+    }else{
+      fill(255);
+    }
+    
+    r.draw_rect(this.posX, this.posY, 10, 10);
   }
 }
