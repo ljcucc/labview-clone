@@ -20,7 +20,7 @@ void initFrame(){
   frame = (java.awt.Frame) ((processing.awt.PSurfaceAWT.SmoothCanvas)this.getSurface().getNative()).getFrame();
   MenuBar menubar =new MenuBar();  
   Menu file_menu=new Menu("File");  
-  MenuItem file_open =new MenuItem("Open file");  
+  MenuItem file_open =new MenuItem("Exit");  
   file_menu.add(file_open);
   
   menubar.add(file_menu);  
