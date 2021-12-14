@@ -3,7 +3,7 @@ import java.util.*;
 
 //RenderPool rects = new RenderPool();
 //Renderer globalRenderer = new Renderer();
-RenderableContainer rootContainer = new RenderableContainer(0, 0);
+BlockWorkspace rootContainer = new BlockWorkspace(0, 0);
 
 void settings(){
   size(800,600, JAVA2D);
