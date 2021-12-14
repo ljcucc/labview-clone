@@ -79,6 +79,21 @@ class RenderPool extends ArrayList<Renderable> {
 
     this.addAll(rp);
   }
+  
+  public void recounting(){
+    for(int i = 0; i < this.size(); i++){
+      this.get(i).zindex = i;
+    }
+  }
+  
+  public int getMaxZindex(){
+    int maxZindex = -1;
+    for(Renderable r: this){
+      if(r.zindex > maxZindex) maxZindex = r.zindex;
+    }
+    
+    return maxZindex;
+  }
 }
 
 class RenderableContainer extends Renderable {
